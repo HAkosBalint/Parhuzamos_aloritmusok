@@ -1,16 +1,22 @@
 #include <stdio.h>
-#include <unistd.h>
 
-int main() {
+int main(void){
+
+    printf("Kerlek adj me ey maximum 8 szamjeyu szamot:\n");
 
     int szam;
 
-    printf("Adja meg az idozito hosszat: ");
+    scanf("%d", &szam);
 
-    scanf("%d",&szam);
+   printf("0-akkal: %.8d\n",szam);
 
-    sleep(szam);
+   printf("Szokozokkel:");
 
-    printf("Lejart az ido!!");
+   for(int i = 0; i < 8; i++)
+   {
+      printf(" ");
+   }
+   printf("%d",szam);
+
 
 }
