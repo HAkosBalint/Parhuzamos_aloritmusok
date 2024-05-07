@@ -1,6 +1,6 @@
 # FÉLÉVES FELADAT #
 
-#x GAUSS-JORDAN OMP ##
+## GAUSS-JORDAN OMP ##
 
 - OpenMp: Gauss-Jordan elimináció egyenletrendszerek megoldására "nxm" es mátrix. 
 - Szekvenciális és omp megoldások összehasonlítása: 
