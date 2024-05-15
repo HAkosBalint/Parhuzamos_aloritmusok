@@ -19,10 +19,14 @@ A végtelen norma kiszámítása során Pthread és Python megoldásokat is vizs
 - A PyPy használata esetén a Python implementáció közelít a Pthread megközelítés sebességéhez.
 
 ### Grafikonok:
-- Kisebb méretű mérések: ![Kisebb méretű mérések grafikon](feleves_feladat/few_oc.jpg)
-- Nagyobb méretű mérések: ![Nagyobb méretű mérések grafikon](feleves_feladat/infnorm_oc.jpg)
-- Pythonban történő multithreading mérései: ![Pythonban történő multithreading grafikon](feleves_feladat/python_c.jpg)
-- PyPy fordítóval történő Python mérései: ![PyPy fordítóval történő grafikon](feleves_feladat/python_pypy.jpg)
+- Kisebb méretű mérések:
+  ![Kisebb méretű mérések grafikon](feleves_feladat/few_oc.jpg)
+- Nagyobb méretű mérések:
+  ![Nagyobb méretű mérések grafikon](feleves_feladat/infnorm_oc.jpg)
+- Pythonban történő multithreading mérései:
+  ![Pythonban történő multithreading grafikon](feleves_feladat/python_c.jpg)
+- PyPy fordítóval történő Python mérései:
+  ![PyPy fordítóval történő grafikon](feleves_feladat/python_pypy.jpg)
 
 ## Mérési Adatok
 
