@@ -1,47 +1,40 @@
-# FÉLÉVES FELADAT #
+## Mérési Adatok
 
-## GAUSS-JORDAN OMP ##
+### Gauss-Jordan OpenMP
 
-- OpenMp: Gauss-Jordan elimináció egyenletrendszerek megoldására "nxm" es mátrix. 
-- Szekvenciális és omp megoldások összehasonlítása: 
-- Megfigyelhető, hogy minnél nagyobb a mátrix annál nagyobb gyorsítást érhetünk el párhuzamosítással.
-- A grafikon gauss_jordan.jpg néven található meg. Az ehhez tartozó adatok a gaussjordan mappán belül data.csv néven található.
+A mérések során a Gauss-Jordan OpenMP implementációval a következő eredményeket értük el:
 
-## IFINITY-NORM PTHREAD/PYTHON ##
+- **1000x1000-es mátrix esetén:**
+  - Szekvenciális: 1.736 másodperc
+  - OpenMP: 0.302 másodperc
 
-- Egy "nxn" es mátrix végtelen normájának kiszámítása szekvenciális és pthread felhasználásával valamint python multithreadinget használva.
-- Kevés elemszámnál megfigyelhető hogy nem éri meg túl sok threadet létrehozni mivel ez időveszteséghez vezet, viszont minnél nagyobb a mátrix mérete annál hatékonyabb több szállal dolgozni. A kisebb elemű méréseket a "few_oc.jpg" tartalmazza, a nagyobb méretűeket pedig "infnorm_oc.jpg".
-- A pythonban megvalósított multithreading nagyon lassúnak bizonyult, igen magas időkülömbségek jöttek ki. A grafikon a mérésekről: "python_c.jpg".
-- Ellenben a pypy fordítót használva a c pthread-hez hasonló adatokat kapunk. Grafikon: "python_pypy".
+- **3000x3000-es mátrix esetén:**
+  - Szekvenciális: 14.628 másodperc
+  - OpenMP: 72.684 másodperc
 
-##-A fileok a "feleves_feladat" mappában találhatóak meg. A mérési adatok a "Datas"-mappában találhatóak meg. Az "infinity_data.csv" az összes mért adatot, "python_data.csv" a pythonban és pypy-ban mért összehasonlítás.##
+A mérési adatok másodpercben vannak kifejezve. Az eredmények alapján megfigyelhető, hogy minél nagyobb a mátrix mérete, annál nagyobb a különbség a szekvenciális és OpenMP megközelítés között. Ez a párhuzamosítás hatékonyságát mutatja.
 
-## -Pár mérési adat :##
+### Infinity-Norm Pthread/Python
 
-    - Gauss Jordan:
-    
-        1 1500 8.918000
-        1 3000 75.267000
+Az Infinity-Norm számítása során a Pthread és Python megoldásokat is vizsgáltuk:
 
-        0 1500 1.736000
-        0 3000 14.628000
-    
-    - Infinitynorm:
-    
-        0 1000 0.004000
-        0 10000 0.394000
-        0 15500 0.922000
+- **1000x1000-es mátrix esetén:**
+  - Pthread: 0.004 másodperc
+  - Python: 0.059 másodperc
+  - PyPy: 0.302 másodperc
 
-        1 1000 0.3022737503051758
-        1 10000 30.32253122329712
-        1 15500 72.68398976325989
+- **15500x15500-es mátrix esetén:**
+  - Pthread: 0.922 másodperc
+  - Python: 0.528 másodperc
+  - PyPy: 72.684 másodperc
 
-        4 1000 0.003000
-        4 10000 0.117000
-        4 15500 0.255000
+Az eredmények másodpercben vannak kifejezve. Megfigyelhető, hogy a Pthread megoldás jelentősen gyorsabb, mint a Python megoldás, különösen nagyobb méretű mátrixok esetén. A PyPy használata jelentős sebességnövekedést eredményez a Pythonhoz képest.
 
-    - Python:
+### Grafikonok
 
-        2 1000 0.05869603157043457
-        2 10000 0.252208948135376
-        2 15500 0.5282750129699707
+- **Gauss-Jordan OpenMP:** ![Gauss-Jordan OpenMP grafikon](gauss_jordan.jpg)
+- **Infinity-Norm Pthread/Python:**
+  - Kisebb méretű mérések: ![Kisebb méretű mérések grafikon](few_oc.jpg)
+  - Nagyobb méretű mérések: ![Nagyobb méretű mérések grafikon](infnorm_oc.jpg)
+  - Pythonban történő multithreading mérései: ![Pythonban történő multithreading grafikon](python_c.jpg)
+  - PyPy fordítóval történő Python mérései: ![PyPy fordítóval történő grafikon](python_pypy.jpg)
